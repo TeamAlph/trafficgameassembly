@@ -1,56 +1,70 @@
+
+a virtual device in emu traffic light 
+how to opearte traffic light with user input.....???
+
+now here you see                                        
+
+B A 9 8 7 6 5 4 3 2 1 0
+0  0 1 0 0 1 0 0 1 0 0 1 // to stop all traffic this is the port code
+
+B A 9 8 7 6 5 4 3 2 1 0
+0  0 1 1 0 0 0 0 1 1 0 0 // for one way traafic
+lets see
+lets do with user input
+add some timde delay
+
+user inout |a| for one way 
+
+and other than  a is the other way 
+now with the user input
+
+
+
 .org 100h
-
 .data
-
 .code
-
-
-main proc
-           mov bx,10
-           po:
-     mov bx,20
-    k2:  
- 
- mov ax,001001001001b
- out 4,ax  
- 
- dec bx 
- 
- jnz k2 
+main proc 
     
-      mov bx,10
-    k:  
- 
- mov ax,100001100001b
- out 4,ax  
- 
- dec bx 
- 
- jnz k 
- 
- 
-      mov bx,20
-    k3:  
- 
- mov ax,001001001001b
- out 4,ax  
- 
- dec bx 
-      jnz k3 
-      
- 
-    mov bx,10
-    k1:  
- 
- mov ax,001100001100b
- out 4,ax  
- 
- dec bx 
- 
- jnz k1 
- dec bx
- jnz po
+
+
+
+jmp start 
  
 
+l:  
+mov bx,100
+h:
+dec bx 
+jnz h
+
+start:
+
+
+mov ax,001001001001b
+out 4,ax 
+
+mov ah,01h
+
+int 21h
+
+cmp al,61h
+je n
+jne r
+ n:
+ 
+
+mov ax,001100001100b
+out 4,ax 
+jmp l
+r:
+ mov ax,100001100001b
+out 4,ax
+
+jmp l
+
+   
     
 endp
+
+ret
+
