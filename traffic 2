@@ -1,0 +1,56 @@
+.org 100h
+
+.data
+
+.code
+
+
+main proc
+           mov bx,10
+           po:
+     mov bx,20
+    k2:  
+ 
+ mov ax,001001001001b
+ out 4,ax  
+ 
+ dec bx 
+ 
+ jnz k2 
+    
+      mov bx,10
+    k:  
+ 
+ mov ax,100001100001b
+ out 4,ax  
+ 
+ dec bx 
+ 
+ jnz k 
+ 
+ 
+      mov bx,20
+    k3:  
+ 
+ mov ax,001001001001b
+ out 4,ax  
+ 
+ dec bx 
+      jnz k3 
+      
+ 
+    mov bx,10
+    k1:  
+ 
+ mov ax,001100001100b
+ out 4,ax  
+ 
+ dec bx 
+ 
+ jnz k1 
+ dec bx
+ jnz po
+ 
+
+    
+endp
